@@ -1,12 +1,12 @@
-# This is the tdcx_backend
+# This is the psi_test_backend
 
-This project is the backend of tdcs assignment which is created using nodejs, postgres database and sequelize Orm.
+This project is the backend of psi assignment which is created using nodejs, postgres database and sequelize Orm.
 This project gets the data of user and after that let that user create, update and delete the tasks.
 
 ## Installation Requirements
 
 Firstly setup the postgresql database in the local environment and edit the credentials in models/index.js file. 
-The scheme will be automatically create when you start the server.
+The schema will be automatically created when you start the server.
 
 
 ## Available Scripts
@@ -14,6 +14,9 @@ The scheme will be automatically create when you start the server.
 In the project directory, you can run:
 
 ### `npm install`
+
+
+Install the required dependencies
 
 ### `npm start`
 
