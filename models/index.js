@@ -1,14 +1,14 @@
 const { Sequelize } = require("sequelize");
 
 const sequelize = new Sequelize(
-  process.env.DB_SCHEMA || "postgres",
-  process.env.DB_USER || "postgres",
-  process.env.DB_PASSWORD || "Test@123",
+  process.env.DB_SCHEMA || "conference",
+  process.env.DB_USER || "quizophy",
+  process.env.DB_PASSWORD || "g6k5fNzwGgwEgE2kYTEd",
   {
     dialect: "postgres",
-    host: process.env.DB_HOST || "localhost",
+    host: process.env.DB_HOST || "quizophydb.cira15sxubzg.ap-south-1.rds.amazonaws.com",
     port: process.env.DB_PORT || 5432,
-    database: process.env.DB_DATABASE || "postgres"
+    database: process.env.DB_DATABASE || "conference"
   }
 );
 

@@ -16,13 +16,27 @@ exports.create = async (req, res) => {
 
 exports.findAll = async (req, res) => {
     try {
+        const {query, id} = req.query
         let data;
+        if(query == '' || !query) {
             data = await Tasks.findAll({
-                where: {user_id: req.query.id},
+                where: {user_id: id},
                 order: [
                     ['id', 'DESC']
                 ],
             })
+        } else {
+            data = await Tasks.findAll({
+                where: {
+                    name: { [Op.like]: `%${query}%` },
+                    user_id: id
+                    // level: { [Op.like]: `%${search}%` }
+                },
+                order: [
+                    ['id', 'DESC']
+                ],
+            })
+        }
         return res.status(200).json(data)
     }
     catch (err) {
