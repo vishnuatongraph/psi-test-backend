@@ -78,7 +78,7 @@ exports.delete = async (req, res) => {
         await Tasks.destroy({
             where: { id }
         });
-        return res.status(200).json("Record deleted")
+        return res.status(200).json(process.env.DELETED)
     }
     catch (err) {
         return res.status(500).json(err)

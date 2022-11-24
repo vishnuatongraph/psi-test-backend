@@ -6,6 +6,7 @@ const bodyParser = require("body-parser");
 const Router = require("./routes/index");
 const swaggerUI = require("swagger-ui-express");
 const docs = require('./docs');
+require('dotenv').config({path: __dirname + '/.env' })
 
 const app = express();
 

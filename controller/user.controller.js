@@ -1,7 +1,10 @@
+require('dotenv')
 const dbContext = require("../models");
 const Users = dbContext.Users;
 const Sequelize = require("sequelize");
 const Op = Sequelize.Op;
+const jwt = require('jsonwebtoken');
+
 
 exports.create = async (req, res) => {
   try {
@@ -13,10 +16,15 @@ exports.create = async (req, res) => {
       id,
       name,
     };
-    const [data, created] = await Users.findOrCreate({
+    let [data, created] = await Users.findOrCreate({
       where: whereObj,
       defaults: req.body,
     });
+    const api_token = jwt.sign(
+      { id: data.id },
+      process.env.TOKEN_KEY
+  );
+  data = {...data.toJSON(), api_token}
     res.status(200).json(data);
   } catch (err) {
     res.status(500).json(err);
