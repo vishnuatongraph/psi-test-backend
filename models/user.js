@@ -6,8 +6,13 @@ module.exports = (sequelize, Sequelize) => {
           allowNull: false,
           type: Sequelize.INTEGER,
           primaryKey: true,
+          autoIncrement: true
         },
-        name: {
+        username: {
+          type: Sequelize.STRING,
+          unique: true
+        },
+        password: {
           type: Sequelize.STRING
         },
         createdAt: {

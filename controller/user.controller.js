@@ -8,13 +8,13 @@ const jwt = require('jsonwebtoken');
 
 exports.create = async (req, res) => {
   try {
-    const { id, name } = req.body;
-    if (!id || !name) {
-      return res.status(204).json("Id and name can not be empty!");
+    const { username, password } = req.body;
+    if (!username || !password) {
+      return res.status(204).json("username and password can not be empty!");
     }
     let whereObj = {
-      id,
-      name,
+      username,
+      password,
     };
     let [data, created] = await Users.findOrCreate({
       where: whereObj,
